@@ -16,7 +16,14 @@ public class Common extends Endpoints {
     protected ReportingFilter filter;
 
     @BeforeMethod(alwaysRun = true)
-    public void baseBeforeMethod(ITestContext context) {filter = new ReportingFilter(context);}
+    public void baseBeforeMethod(ITestContext context) {
+        filter = new ReportingFilter(context);
+
+        // Log class name
+        System.out.println("--------------------------------------------------");
+        System.out.println("RUNNING TEST CLASS: " + this.getClass().getSimpleName());
+        System.out.println("--------------------------------------------------");
+    }
 
     //----------------------------------GET----------------------------------
     public Response getUrl(String endpoint){
